@@ -89,6 +89,7 @@ int main() {
 		cin>>n;
 		for(i=0;i<n;i++){
 			cout<<endl;
+			cout<<"\t"<<"Barang ke "<<i+1<<endl;
 			cout<<"\t"<<"Input Kode Barang                 : ";cin>>barang[i].kode;
 			cout<<"\t"<<"Input Nama Barang                 : ";cin>>gets(barang[i].nama);
 			cout<<"\t"<<"Input Stock Barang                : ";cin>>barang[i].stock;
@@ -163,34 +164,38 @@ int main() {
 	
 	// Jika memilih cari barang
 	if(pilihanProgram2 == 2) {
-		cout<<"\t"<<"Masukan Kode Barang Untuk Mencari : ";
-		cin>>cari;
-		ada = 0;
-		for(b=0;b<n;b++) {
-			if(barang[b].kode==cari) {
-				ada=1;
-				cout<<"\t============== Hasil  Search Data Barang Toko ==============\n";
-				cout<<"\t------------------------------------------------------------\n\n";
-				cout<<"\t------------------------------------------------------------\n";
-				cout<<"\tFormat Tampilan List :\n";
-		        cout<<"\t(Kode Barang - Nama Barang - Jumlah Stock - Tanggal Masuk)\n";
-		        cout<<"\t------------------------------------------------------------\n\n";
-		        cout<<"\t------------------------------------------------------------\n";
-				for(b=0;b<n;b++){
-					cout<<"\t"<<"=> "<<barang[b].kode<<" - "<<barang[b].nama<<" - "<<barang[b].stock<<" - "<<barang[b].tanggal<<endl;
-				}
-				cout<<"\t------------------------------------------------------------\n\n";
-				getch();
-				if (ada == 0) {
-					system("cls");
-					cout<<"\n";
-					cout<<"\tData Tidak ditemukan"<<endl;
-					getch();
-				}
-			}
-		}
-		goto pilihMenu2;
+		system("cls");
+		cout<<"\tMasukan Kode Barang Untuk Mencari : ";
+        cin>>cari;
+        system("cls");
+        ada = 0;
+        for(b=0;b<n;b++)
+            {
+            if(barang[b].kode==cari)
+                {
+                    ada=1;
+					cout<<"\t===================== Hasil Searching ======================\n";
+					cout<<"\t------------------------------------------------------------\n\n";
+					cout<<"\t------------------------------------------------------------\n";
+					cout<<"\tFormat Tampilan List :\n";
+    			    cout<<"\t(Kode Barang - Nama Barang - Jumlah Stock - Tanggal Masuk)\n\n";
+                    cout<<"\t"<<barang[b].kode<<" - "<<barang[b].nama<<" - "<<barang[b].stock<<" - "<<barang[b].tanggal<<endl;
+                }
+            }
+                    cout<<"\t============================================================"<<endl;
+                    system("PAUSE");
+                    getch();
+                    goto pilihMenu2;
+
+        if (ada == 0)
+            {
+                cout<<"Data Tidak ditemukan"<<endl;
+                    system("PAUSE");
+                    getch();
+                    goto pilihMenu2;
+            }
 	}
+	
 	// Menu Penutup
 	programSelesai: // Label programSelesai
 	system("cls");
